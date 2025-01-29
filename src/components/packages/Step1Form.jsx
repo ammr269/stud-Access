@@ -91,7 +91,7 @@ export const StepForm = () => {
     setIsPending(true);
 
     try {
-      const response = await fetch('api/informations', {
+      const response = await fetch('/api/informations', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),

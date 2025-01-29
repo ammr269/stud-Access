@@ -66,7 +66,7 @@ export const Indicator = () => {
       }
     };
 
-    fetchUserData();
+    void fetchUserData();
   }, [session?.user?.id]);
 
   if (loading) {
@@ -130,18 +130,3 @@ export const Indicator = () => {
     </Box>
   );
 };
-
-// <Stack spacing={3} inset={0} bg="red.50">
-//   <Stack alignItems="center">
-//     {indicatorMessages.map((message, index) => (
-//       <Text
-//         key={index}
-//         color={index <= currentIndex ? 'green.500' : 'gray.500'}
-//         fontWeight={index <= currentIndex ? 'bold' : 'normal'}
-//         textAlign="left" // Alignement du texte à gauche
-//       >
-//         {message}
-//       </Text>
-//     ))}
-//   </Stack>
-// </Stack>

@@ -4,6 +4,7 @@ import { Button, Heading, Input, Stack } from '@chakra-ui/react';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
+
 export const dynamic = 'force-dynamic';
 
 export default function Page() {
@@ -40,7 +41,7 @@ export default function Page() {
     setIsPending(true);
 
     try {
-      const response = await fetch('api/informations3', {
+      const response = await fetch('/api/informations3', {
         method: 'PUT',
         body: JSON.stringify(body),
         headers: {

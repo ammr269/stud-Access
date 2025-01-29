@@ -47,7 +47,6 @@ export const authOptions = {
   ],
   strategy: 'jwt',
   callbacks: {
-    // correction de 'callbaks' en 'callbacks'
     async jwt({ token, user }) {
       // const tokenWithUser= token
       // correction de 'acount' en 'account'

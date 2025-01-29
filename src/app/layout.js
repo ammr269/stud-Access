@@ -2,7 +2,6 @@ import { Band } from '@/components/packages/Band';
 import Navbar from '@/components/packages/Barnav';
 import { Footer } from '@/components/packages/Footer';
 import { Providers } from '@/components/packages/providers/Providers';
-import { Provider } from '@/components/ui/provider';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { ToastContainer } from 'react-toastify';
 
@@ -42,16 +41,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang='fr'>
+    <html lang='fr' suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Providers>
-          <Provider>
-            <Navbar />
-            <Band />
-            {children}
-            <ToastContainer />
-            <Footer />
-          </Provider>
+          <Navbar />
+          <Band />
+          {children}
+          <ToastContainer />
+          <Footer />
         </Providers>
       </body>
     </html>

@@ -17,6 +17,7 @@ import {
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
+
 export const dynamic = 'force-dynamic';
 
 export default function Page() {
@@ -59,7 +60,7 @@ export default function Page() {
     };
 
     try {
-      const response = await fetch('api/scolarite', {
+      const response = await fetch('/api/scolarite', {
         method: 'POST', // Utiliser POST pour la création d'une nouvelle entrée
         body: JSON.stringify(body),
         headers: {

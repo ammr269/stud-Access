@@ -14,19 +14,30 @@ import Link from 'next/link';
 
 export const WhyUs = () => (
   <Stack
-    direction={{ base: 'column', md: 'row' }} // Changer la direction selon la taille de l'écran
+    css={{
+      flexDirection: 'column',
+      '@media (min-width: 984px)': {
+        flexDirection: 'row',
+      },
+    }}
+    alignSelf='center'
     spacing='1rem' // Espace entre les cartes
-    align='stretch'
     maxW={{ base: '100%', lg: '90%' }} // 100% pour les petits écrans et 80% pour les grands écrans
-    mx='auto' // Centrer le Stack horizontalement
-    mt='2rem'
+    px='1rem'
+    pt='1rem'
+    alignItems={{ base: 'center' }}
   >
     <Card.Root
       flexDirection={{ base: 'column', md: 'row' }} // Changer flexDirection selon la taille de l'écran
+      css={{
+        flexDirection: 'column',
+        '@media (min-width: 984px)': {
+          flexDirection: 'row',
+        },
+      }}
       overflow='hidden'
       maxW='xl'
       p='1rem'
-      m='1rem'
       borderRadius='md'
       boxShadow='md'
     >
@@ -39,11 +50,7 @@ export const WhyUs = () => (
       />
       <Box p='1rem'>
         <Card.Body>
-          <Card.Title
-            mb='2'
-            fontSize={{ base: 'lg', md: 'xl' }}
-            fontWeight='bold'
-          >
+          <Card.Title fontSize={{ base: 'lg', md: 'xl' }} fontWeight='bold'>
             Votre avenir débute aujourd&apos;hui
           </Card.Title>
           <Card.Description fontSize={{ base: 'sm', md: 'md' }}>
@@ -93,7 +100,6 @@ export const WhyUs = () => (
           fontSize={{ base: '2xl', md: '2rem' }} // Taille responsive du titre
           color='teal.700' // Couleur douce et chaleureuse pour le titre
           letterSpacing='wider' // Espacement entre les lettres pour un effet plus élégant
-          mb='1.5rem' // Marge en bas du titre pour espacer un peu
           textDecoration='underline'
         >
           Bienvenue !
