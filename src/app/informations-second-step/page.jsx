@@ -267,12 +267,11 @@ export default function Page() {
           bgColor='green.600' // même couleur que "Suivant"
           width='48%' // pour donner un peu d'espace entre les boutons
           fontSize='1.1rem'
-          href={THIRD_STEP_FORM_PAFE}
           _hover={{ bgColor: 'green.800' }}
-          as={Link}
           color='white'
+          asChild
         >
-          Etape suivante
+          <Link href={THIRD_STEP_FORM_PAFE}> Etape suivante</Link>
         </Button>
       </ButtonGroup>
     </Stack>

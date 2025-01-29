@@ -66,6 +66,7 @@ async function middleware(req) {
 
   // redirect to the home page if the user is logged in and tries to access the login/signup page
   if (IsAuthPageAndisLoggedIn(req, token)) {
+    console.log('  =>you are allready connected:', req.nextUrl.pathname);
     return NextResponse.redirect(new URL(`/`, req.url));
   }
 

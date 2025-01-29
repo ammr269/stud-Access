@@ -102,10 +102,9 @@ export default function Navbar() {
                         size='sm'
                         bg='white'
                         _hover={{ bg: 'gray.200' }}
-                        as={Link}
-                        href={DASHBOARD_PAGE}
+                        asChild
                       >
-                        Accès Admin
+                        <Link href={DASHBOARD_PAGE}> Accès Admin</Link>
                       </Button>
                     </MenuItem>
                   )}
@@ -211,10 +210,9 @@ export default function Navbar() {
                       colorScheme='green'
                       size='lg'
                       _hover={{ bg: 'green.700', color: 'white' }}
-                      as={Link}
-                      href={DASHBOARD_PAGE}
+                      asChild
                     >
-                      Accès Admin
+                      <Link href={DASHBOARD_PAGE}> Accès Admin</Link>
                     </Button>
                   )}
 
@@ -236,20 +234,18 @@ export default function Navbar() {
                     colorScheme='blue'
                     size='lg'
                     _hover={{ bg: 'blue.600', color: 'white' }}
-                    as={Link}
-                    href={SUGNUP_PAGE}
+                    asChild
                   >
-                    S&apos;inscrire
+                    <Link href={SUGNUP_PAGE}> S&apos;inscrire</Link>
                   </Button>
                   <Button
                     variant='surface'
                     colorScheme='green'
                     size='lg'
                     _hover={{ bg: 'green.600', color: 'white' }}
-                    as={Link}
-                    href={AUTH_PAGE}
+                    asChild
                   >
-                    Se connecter
+                    <Link href={AUTH_PAGE}> Se connecter</Link>
                   </Button>
                 </>
               )}

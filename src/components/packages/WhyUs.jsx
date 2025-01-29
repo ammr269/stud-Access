@@ -57,8 +57,7 @@ export const WhyUs = () => (
         </Card.Body>
         <Card.Footer>
           <Button
-            as={Link}
-            href={FIRST_STEP_FORM_PAGE}
+            asChild
             fontSize='20px'
             bg='green.700'
             w='full'
@@ -72,7 +71,7 @@ export const WhyUs = () => (
               bg: 'teal.00', // Changer de couleur au clic
             }}
           >
-            C&apos;est parti !
+            <Link href={FIRST_STEP_FORM_PAGE}>C&apos;est parti !</Link>
           </Button>
         </Card.Footer>
       </Box>
@@ -116,6 +115,7 @@ export const WhyUs = () => (
 
       <Card.Footer display='flex' justifyContent='center' mt='1.5rem'>
         <Button
+          asChild
           fontSize='lg'
           fontWeight='bold'
           bg='green.700'
@@ -129,10 +129,8 @@ export const WhyUs = () => (
           _active={{
             bg: 'green.700', // Changer de couleur au clic
           }}
-          as={Link}
-          href={FIRST_STEP_FORM_PAGE}
         >
-          Commencer
+          <Link href={FIRST_STEP_FORM_PAGE}> Commencer</Link>
         </Button>
       </Card.Footer>
     </Card.Root>

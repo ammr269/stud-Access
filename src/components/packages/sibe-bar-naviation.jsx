@@ -37,7 +37,6 @@ export default function SideBarNavigations() {
           </List.Item>
         )}
       </For>
-      {/* ))} */}
     </List.Root>
   );
 }
