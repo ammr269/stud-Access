@@ -44,15 +44,12 @@ async function middleware(req) {
   const token = req.nextauth.token;
   const shouldSigning = forceToLoginOnProtectedRoutes(req, token);
   if (shouldSigning) {
-    console.log(
-      '  => Redirecting to login page, forceToLoginOnProtectedRoutes',
-    );
     return shouldSigning();
   }
 
   // redirect to the home page if the user is logged in and tries to access the login/signup page
   if (IsAuthPageAndIsLoggedIn(req, token)) {
-    console.log('  => You are already connected: ', req.nextUrl.pathname);
+    console.log('  => You are already connected redirecting to home page...');
     return NextResponse.redirect(new URL(`/`, req.url));
   }
 
