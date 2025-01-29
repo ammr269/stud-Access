@@ -27,6 +27,10 @@ export default withAuth(middleware, {
 async function middleware(req) {
   // const reqLogger = new RequestLogger(logger, req);
   const isMiddlewareAllowed = matcherRegex.test(req.nextUrl.pathname);
+  console.log(
+    `  => Middleware: ${req.method.toUpperCase()} `,
+    req.nextUrl.pathname,
+  );
   if (!isMiddlewareAllowed) {
     return NextResponse.next();
   }
