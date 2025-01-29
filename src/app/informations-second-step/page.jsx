@@ -17,6 +17,7 @@ import {
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
+export const dynamic = 'force-dynamic';
 
 export default function Page() {
   const [sessionE, setSessionE] = useState('');

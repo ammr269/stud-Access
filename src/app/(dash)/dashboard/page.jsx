@@ -2,6 +2,7 @@
 import { navItems } from '../../../components/packages/homeItems';
 import { Card, Flex, For, Heading, Icon, Stack, Text } from '@chakra-ui/react';
 import { useSession } from 'next-auth/react';
+export const dynamic = 'force-dynamic';
 
 export default function Home() {
   const session = useSession();

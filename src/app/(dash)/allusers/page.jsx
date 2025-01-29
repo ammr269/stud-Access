@@ -3,6 +3,7 @@ import { getAllStudents } from '@/app/api/students/users.service';
 import StudentsBody from '@/components/packages/TableBodyStudents';
 import { Box, Table, Text } from '@chakra-ui/react'; // Ajoutez Text ici
 import { getServerSession } from 'next-auth';
+export const dynamic = 'force-dynamic';
 
 export default async function Page() {
   // const [students, setStudents] = useState([])

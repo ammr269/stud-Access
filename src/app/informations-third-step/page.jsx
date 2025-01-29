@@ -4,6 +4,7 @@ import { Button, Heading, Input, Stack } from '@chakra-ui/react';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
+export const dynamic = 'force-dynamic';
 
 export default function Page() {
   const [serie, setSerie] = useState('');

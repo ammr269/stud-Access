@@ -78,7 +78,7 @@ export const Indicator = () => {
   }
 
   if (!userData) {
-    return <div>Aucune donnée disponible.</div>;
+    return <div></div>;
   }
 
   const currentIndex = indicatorOrder.indexOf(userData?.indicator);
