@@ -1,0 +1,116 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id_user       String    @id @default(cuid())
+  name          String
+  email         String    @unique
+  emailVerified DateTime?
+  image         String?
+  role          role      @default(etudiant)
+  indicator     indicator @default(Pending)
+  hashPassword  String    @db.Text
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  // Relations
+  informationsPersonnelles StudentsInformations? @relation(name: "InformationsPersonnellesToUser")
+}
+
+model StudentsInformations {
+  id               Int       @id @default(autoincrement())
+  formId           String    @unique @default(uuid()) @map("form_id")
+  email            String?
+  emilPwd          String?
+  civilite         String?
+  dateNaissance    DateTime? @map("date_naissance")
+  niveauEtude      String?   @map("niveau_etude")
+  paysNaissance    String?   @map("pays_naissance")
+  communeNaissance String?   @map("commune_naissance")
+  paysResidence    String?   @map("pays_residence")
+  adresseVille     String?   @map("adresse_ville")
+  commune          String?
+  numeroTelephone  String?   @map("numero_telephone")
+
+  // Relation avec Scolarité (un étudiant peut avoir plusieurs années de scolarité)
+  scolarites Scolarite[]
+
+  // Baccalauréat
+  serie               String?
+  annee               DateTime?
+  nomEtablissementBac String?   @map("nom_etablissement_bac")
+  moyenne             Float?
+  mention             String?
+  domaine1            String?   @map("domaine_1")
+  domaine2            String?   @map("domaine_2")
+  domaine3            String?   @map("domaine_3")
+  villeFrance1        String?   @map("ville_france_1")
+  villeFrance2        String?   @map("ville_france_2")
+  villeFrance3        String?   @map("ville_france_3")
+  step                Steps?
+
+  userId String @unique // Clé étrangère unique pour garantir une relation one-to-one
+
+  // Relation avec User
+  user User @relation(name: "InformationsPersonnellesToUser", fields: [userId], references: [id_user])
+
+  @@map("students_informations")
+}
+
+model Scolarite {
+  id               Int     @id @default(autoincrement())
+  session          String?
+  niveau           String?
+  filiere          String?
+  nomEtablissement String? @map("nom_etablissement")
+  ville            String?
+  pays             String?
+  matiere1         String?
+  nbHeure1         Int?
+  matiere2         String?
+  nbHeure2         Int?
+  matiere3         String?
+  nbHeure3         Int?
+  matiere4         String?
+  nbHeure4         Int?
+
+  // Relation avec StudentsInformations (plusieurs années de scolarité pour un étudiant)
+  studentsInformationsId Int
+  studentsInformations   StudentsInformations @relation(fields: [studentsInformationsId], references: [id], onDelete: Cascade)
+
+  @@map("scolarite")
+}
+
+enum Steps {
+  step1
+  step2
+  step3
+}
+
+enum role {
+  etudiant
+  admin
+}
+
+enum indicator {
+  Pending
+  Initializing
+  Progress
+  Validating
+  Testing
+  Finalizing
+  Ready
+  Completed
+}
