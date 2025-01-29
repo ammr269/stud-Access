@@ -43,7 +43,12 @@ async function middleware(req) {
   // Redirect to `login` page if not logged in yet
   const token = req.nextauth.token;
   const shouldSigning = forceToLoginOnProtectedRoutes(req, token);
-  if (shouldSigning) return shouldSigning();
+  if (shouldSigning) {
+    console.log(
+      '  => Redirecting to login page, forceToLoginOnProtectedRoutes',
+    );
+    return shouldSigning();
+  }
 
   // redirect to the home page if the user is logged in and tries to access the login/signup page
   if (IsAuthPageAndIsLoggedIn(req, token)) {
