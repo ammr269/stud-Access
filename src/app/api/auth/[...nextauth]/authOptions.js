@@ -48,6 +48,7 @@ export const authOptions = {
   strategy: 'jwt',
   callbacks: {
     async jwt({ token, user }) {
+      console.log(' ==> AuthOptions JWT TOP: ', token);
       // const tokenWithUser= token
       // correction de 'acount' en 'account'
       if (user) {
@@ -62,6 +63,7 @@ export const authOptions = {
         const userFromDb = await prisma.user.findUnique({
           where: { id_user: token.user.id },
         });
+        console.log(' ==> AuthOptions JWT: ', userFromDb);
         if (userFromDb) {
           token.user = {
             id: userFromDb.id_user,
@@ -74,6 +76,7 @@ export const authOptions = {
       return token;
     },
     async session({ token, session }) {
+      console.log(' ==> AuthOptions SESSION: ', token);
       session.user = token.user;
       session.role = token.user.role;
       return session;
