@@ -1,11 +1,16 @@
 import { StudentInfos } from '@/components/packages/StudentInfos';
 import environement from '@/config/environement.config';
+import { redirect } from 'next/navigation';
+import { getSession } from 'next-auth/react';
 
 export const dynamic = 'force-dynamic';
 
 export default async function Page({ params }) {
   const { id_user } = await params; // Récupération de l'ID depuis les paramètres d'URL
-
+  const session = await getSession();
+  if (!session) {
+    redirect('/authentification');
+  }
   try {
     // Appel à l'API
     const response = await fetch(

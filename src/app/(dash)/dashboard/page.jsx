@@ -1,7 +1,8 @@
 'use client';
-import { navItems } from '../../../components/packages/homeItems';
+import { navItems } from '@/components/packages/navItems';
 import { Card, Flex, For, Heading, Icon, Stack, Text } from '@chakra-ui/react';
 import { useSession } from 'next-auth/react';
+
 export const dynamic = 'force-dynamic';
 
 export default function Home() {

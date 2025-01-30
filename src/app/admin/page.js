@@ -1,8 +1,13 @@
 import { LeftSideBar } from '@/components/packages/leftSideBar';
 import { ClientOnly, Stack } from '@chakra-ui/react';
-import React from 'react';
+import { redirect } from 'next/navigation';
+import { getSession } from 'next-auth/react';
 
-export default function page() {
+export default async function Page() {
+  const session = await getSession();
+  if (!session) {
+    redirect('/authentification');
+  }
   return (
     <Stack
       position='absolute'

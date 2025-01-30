@@ -11,6 +11,7 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import {
+  Button,
   createListCollection,
   SelectContent,
   SelectItem,
@@ -20,7 +21,6 @@ import {
   SelectValueText,
   Table,
 } from '@chakra-ui/react';
-import { Button } from '@chakra-ui/react';
 import { useState } from 'react';
 
 export function UserActions({ onUserUpdate, student }) {
