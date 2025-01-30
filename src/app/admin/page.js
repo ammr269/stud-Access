@@ -2,10 +2,10 @@ import { authOptions } from '@/app/api/auth/[...nextauth]/authOptions';
 import { LeftSideBar } from '@/components/packages/leftSideBar';
 import { ClientOnly, Stack } from '@chakra-ui/react';
 import { redirect } from 'next/navigation';
-import { getSession } from 'next-auth/react';
+import { getServerSession } from 'next-auth';
 
 export default async function Page() {
-  const session = await getSession(authOptions);
+  const session = await getServerSession(authOptions);
   if (!session) {
     redirect('/authentification');
   }

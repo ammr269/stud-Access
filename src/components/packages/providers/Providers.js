@@ -9,7 +9,7 @@ import { SessionProvider, useSession } from 'next-auth/react';
 export function Providers({ children }) {
   return (
     <UiProvider>
-      <SessionProvider>
+      <SessionProvider basePath='/api/auth'>
         <AppSessionLoader>{children}</AppSessionLoader>
       </SessionProvider>
     </UiProvider>

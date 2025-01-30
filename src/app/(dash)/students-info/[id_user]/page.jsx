@@ -2,13 +2,13 @@ import { authOptions } from '@/app/api/auth/[...nextauth]/authOptions';
 import { StudentInfos } from '@/components/packages/StudentInfos';
 import environement from '@/config/environement.config';
 import { redirect } from 'next/navigation';
-import { getSession } from 'next-auth/react';
+import { getServerSession } from 'next-auth';
 
 export const dynamic = 'force-dynamic';
 
 export default async function Page({ params }) {
   const { id_user } = await params; // Récupération de l'ID depuis les paramètres d'URL
-  const session = await getSession(authOptions);
+  const session = await getServerSession(authOptions);
   if (!session) {
     redirect('/authentification');
   }
