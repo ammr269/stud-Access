@@ -40,8 +40,8 @@ export async function POST(req) {
     !paysResidence ||
     !villeAdresseResidence ||
     !communeResidence ||
-    !numeroTelephone ||
-    !email
+    !numeroTelephone
+    // !email
   ) {
     return NextResponse.json(
       { message: 'Veuillez inclure tous les champs nécessaires' },

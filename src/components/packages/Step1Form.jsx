@@ -41,8 +41,8 @@ export const StepForm = () => {
         !dateNaissance ||
         !niveauEtud ||
         !paysNaissance ||
-        !communeNaissance ||
-        !email
+        !communeNaissance
+        // !email
       ) {
         toast.error("Veuillez remplir tous les champs de l'étape 1.");
         return false;
@@ -199,7 +199,7 @@ export const StepForm = () => {
               _hover={{ borderColor: 'green.500' }}
             />
           </Field>
-          <Field label='Mot de passe de votre adresse email' required>
+          <Field label='Mot de passe de votre adresse email (faculatif)'>
             <PasswordInput
               value={email}
               onChange={(e) => setEmail(e.target.value)}
