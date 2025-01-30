@@ -16,7 +16,7 @@ export const config = {
 // do not allow js, css, map files, and other assets to be prefetched
 const matcherRegex = new RegExp('^(?!/.*(?:map|legal-assets|js|icon|robot)).*');
 
-export default withAuth(middleware, {
+export default withAuth(middlewaress, {
   callbacks: {
     authorized: () => {
       return true;
@@ -24,7 +24,7 @@ export default withAuth(middleware, {
   },
 });
 
-async function middleware(req) {
+async function middlewaress(req) {
   // const reqLogger = new RequestLogger(logger, req);
   const isMiddlewareAllowed = matcherRegex.test(req.nextUrl.pathname);
   console.log(
