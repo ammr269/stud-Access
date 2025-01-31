@@ -30,7 +30,7 @@ export default function AppSessionProvider({ children }) {
               height={300}
             />
             <Text fontWeight='600'>
-              Vous devez vous connecté pour commencer.
+              Vous devez vous connecter pour commencer
             </Text>
             <ButtonGroup>
               <Button h='auto' colorPalette='blue' asChild>
